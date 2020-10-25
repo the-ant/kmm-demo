@@ -5,8 +5,8 @@ func greet() -> String {
     return Greeting().greeting()
 }
 
-func login() -> String {
-    return Api().login()
+func login() {
+    return Api().login(username: "test01", password: "1")
 }
 
 struct ContentView: View {

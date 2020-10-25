@@ -27,8 +27,7 @@ class Api {
     @KtorExperimentalAPI
     fun login(
         username: String = "test01",
-        password: String = "11",
-        callback: (String) -> Unit = {}
+        password: String = "1"
     ) {
         logDebug(TAG, "login: $address")
         CoroutineScope(ApplicationDispatcher).launch {
