@@ -4,7 +4,9 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("kotlin-android-extensions")
+    kotlin("plugin.serialization")
 }
+
 group = "com.sdt.kmm.demoapp"
 version = "1.0-SNAPSHOT"
 
@@ -27,11 +29,9 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-core:1.4.1")
-                implementation("io.ktor:ktor-client-auth:1.4.0")
-                implementation("io.ktor:ktor-client-okhttp:1.4.0")
-                implementation("io.ktor:ktor-client-gson:1.4.0")
-                implementation("io.ktor:ktor-client-cio:1.4.0")
-                implementation("io.ktor:ktor-client-android:1.4.1")
+                implementation("io.ktor:ktor-client-auth:1.4.1")
+                implementation("io.ktor:ktor-client-json:1.4.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.0")
             }
         }
         val commonTest by getting {

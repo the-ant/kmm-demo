@@ -1,2 +1,0 @@
-com/sdt/kmm/demoapp/android/BuildConfig.java
- com.sdt.kmm.demoapp.android.BuildConfig

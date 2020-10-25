@@ -1,31 +1,35 @@
 package com.sdt.kmm.demoapp.shared
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.*
 
-data class ResponseData<T>(
-    @SerializedName("status") val status: Status,
-    @SerializedName("message") val message: String,
-    @SerializedName("errors") val errors: List<Error>,
-    @SerializedName("data") val data: T
+
+@Serializable
+data class Response<T>(
+    @SerialName("status") val status: Status,
+    @SerialName("data") val data: T
 )
 
+@Serializable
 data class Status(
-    @SerializedName("value") val value: Int,
-    @SerializedName("description") val description: String
+    @SerialName("value") val value: Int,
+    @SerialName("description") val description: String
 )
 
+@Serializable
 data class Error(
-    @SerializedName("code") val code: Int,
-    @SerializedName("cause") val cause: String
+    @SerialName("code") val code: Int,
+    @SerialName("cause") val cause: String
 )
 
-data class Data(
-    @SerializedName("token") val token: String,
-    @SerializedName("user") val user: User
+@Serializable
+data class LoginData(
+    @SerialName("token") val token: String,
+    @SerialName("user") val user: User
 )
 
+@Serializable
 data class User(
-    @SerializedName("id") val id: String,
-    @SerializedName("userName") val user: String,
-    @SerializedName("displayName") val displayName: String
+    @SerialName("id") val id: Int,
+    @SerialName("userName") val userName: String,
+    @SerialName("displayName") val displayName: String
 )
