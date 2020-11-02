@@ -20,19 +20,25 @@ class Api {
         }
     }
 
-    private val TAG = "Api"
 
-    var address = "http://192.168.24.13:8081/v1/users/login"
+    companion object {
+        private const val TAG = "Api"
+
+        const val BASE_URL = "http://192.168.16.32:8083/"
+        const val URL_LOGIN = "${BASE_URL}v1/users/login"
+        const val URL_SIGN_UP = "${BASE_URL}v1/users/register"
+        const val URL_GET_PROFILE = "${BASE_URL}v1/users"
+    }
 
     @KtorExperimentalAPI
     fun login(
-        username: String = "test01",
-        password: String = "1"
+        username: String,
+        password: String,
+        callback: (LoginData?) -> Unit = {}
     ) {
-        logDebug(TAG, "login: $address")
-        CoroutineScope(ApplicationDispatcher).launch {
+        GlobalScope.launch(ApplicationDispatcher) {
             try {
-                client.post<String>(address) {
+                client.post<String>(URL_LOGIN) {
                     body = MultiPartFormDataContent(
                         formData {
                             append("userName", username)
@@ -43,11 +49,48 @@ class Api {
                     logDebug(TAG, "login: $it")
                     val response = Json.decodeFromString<Response<LoginData>>(it)
                     logDebug(TAG, "login: $response")
+                    callback(response.data)
                 }
-                client.close()
             } catch (ex: Exception) {
                 ex.printStackTrace()
+                callback(null)
+            } finally {
+                client.close()
             }
         }
+
+    }
+
+    @KtorExperimentalAPI
+    fun register(
+        username: String,
+        password: String,
+        displayName: String,
+        callback: (Boolean) -> Unit = {}
+    ) {
+        GlobalScope.launch(ApplicationDispatcher) {
+            try {
+                client.post<String>(URL_SIGN_UP) {
+                    body = MultiPartFormDataContent(
+                        formData {
+                            append("userName", username)
+                            append("password", password)
+                            append("displayName", displayName)
+                        }
+                    )
+                }.also {
+                    logDebug(TAG, "register: $it")
+                    val response = Json.decodeFromString<Response<String>>(it)
+                    logDebug(TAG, "register: $response")
+                    callback(response.status.value == 200)
+                }
+            } catch (ex: Exception) {
+                ex.printStackTrace()
+                callback(false)
+            } finally {
+                client.close()
+            }
+        }
+
     }
 }

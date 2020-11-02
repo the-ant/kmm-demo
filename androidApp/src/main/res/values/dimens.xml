@@ -1,0 +1,22 @@
+<resources>
+
+    <!-- font sizes -->
+    <dimen name="font_larger">26sp</dimen>
+    <dimen name="font_large">24sp</dimen>
+    <dimen name="font_medium">20sp</dimen>
+    <dimen name="font_normal">18sp</dimen>
+    <dimen name="font_small">16sp</dimen>
+    <dimen name="font_tiny">14sp</dimen>
+
+    <!-- typical spacing between two views -->
+    <dimen name="spacing_huge">60dp</dimen>
+    <dimen name="spacing_larger">48dp</dimen>
+    <dimen name="spacing_large">32dp</dimen>
+    <dimen name="spacing_medium">24dp</dimen>
+    <dimen name="spacing_normal">16dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_tiny">4dp</dimen>
+
+    <dimen name="button_height">56dp</dimen>
+
+</resources>

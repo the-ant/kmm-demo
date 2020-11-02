@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">#C8BC3D</color>
+    <color name="colorPrimaryDark">#C8BC3D</color>
+    <color name="colorAccent">@color/purple</color>
+
+    <color name="purple">#8A4C7D</color>
+    <color name="sweet_pink">#FD969C</color>
+    <color name="chenin">#E4DB7C</color>
+
+    <color name="background_progress_bar">#E4000000</color>
+
+    <color name="transparent">@android:color/transparent</color>
+    <color name="white">@android:color/white</color>
+    <color name="shark">#2A2D34</color>
+    <color name="shark_40">#662A2D34</color>
+    <color name="shark_50">#802A2D34</color>
+    <color name="shark_60">#992A2D34</color>
+    <color name="porcelain">#F0F1F2</color>
+    <color name="porcelain_50">#80F0F1F2</color>
+    <color name="silverSand">#C7CACC</color>
+    <color name="paleSky">#6F747B</color>
+    <color name="grayChateau">#A8ADB3</color>
+    <color name="iron">#E3E5E6</color>
+    <color name="tropicalRainForest">#00804A</color>
+    <color name="mako">#434751</color>
+    <color name="pomegranate">#F23C3C</color>
+    <color name="webOrange">#FFAA00</color>
+    <color name="caribbeanGreen">#06BF7C</color>
+    <color name="alabaster">#F8F8F8</color>
 </resources>
